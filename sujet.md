@@ -41,3 +41,22 @@ D'autres entrrprises utilisent cette technique, par exemple Facebook avec Storm 
 Proofdock.
 On pourrait tout à fait se servir d'un tel système pour des environnements connus tels que le site des impôts, Discord ou toute application destinée à
 servir un très large publique et dans toutes les situations - dues à l'environnement géographique ou la limitation technologique.
+
+### 4. Web Assembly avantages et testabilité
+L'avantage de <i>Web Assembly</i> est qu'il dispose d'une spécification formelle capable de gérer le fait que ce qui est codé doit absolument respecté les
+contraintes décrites par une spécification préalablement renseignée.Ceci à l'avantage de nous assurer que ce qui est exécuté correspond au plus possible
+à la fonctionnalité décrite par les spécification. On peut aussi vérifier du code dit <i>untrusted</i> ou prévoir l'attaque des codes téléchargés depuis 
+certains sites. 
+Cependant cet avantage n'est pas suffisant à écarter les tests. Bien sûr, il faut adapter ces tests en fonction. Par exemple, tester que le code respecte
+les contraintes de la spécification est inutile puisque c'est le principal avantage de <i>Web Assembly</i>. En revanche, tester les cas d'erreurs (Vérifier 
+qu'un exception est lancée, ou le traitement ignorée) et les résultats (cohérence avec la spécification <b>externe</b> au programme informatique) est 
+toujours nécessaire.
+
+### 5. Spécification Mécanisé de Web Assembly
+Selon le papier, l'automatisation de la spécification de <i>Web Assembly</i> permet de mieux répondre à un principe appelé <i>Eyeball Closeness</i>. Ce principe
+relève la correpondance directe entre la la spécification officielle et le système de mécanisation. Avec ce système, quelqu'un d'assez aisé avec l'écriture des
+spécifications peut très facilement lire le code automatisé. L'avantage majeur est en résumé d'automatisé la création de code à partir d'une spécification visuellement
+agréable pour une personne humaine.
+Celà n'améliore pas vraiment la spécification formelle originelle de <i>Web Assembly</i> mais garanti plutôt qu'elle soit correctement interprétée et codée.
+Pour tester les spécifications, Il faut comparer le résultat produit par l'outil Isabelle et ce qui est généralement fait dans l'industrie, conséquemment il faut
+des spécifications déterministes.
